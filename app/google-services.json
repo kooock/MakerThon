@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "758706504145",
+    "firebase_url": "https://matjib-befc5.firebaseio.com",
+    "project_id": "matjib-befc5",
+    "storage_bucket": "matjib-befc5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758706504145:android:ad314d056a4f3589",
+        "android_client_info": {
+          "package_name": "hyu.android.kjh.matjib"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758706504145-1oi6lsjvr6pa53a6qtcsf2hshb1b61r2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hyu.android.kjh.matjib",
+            "certificate_hash": "eb0006b531e89680554b3b397ca516d3f07aca13"
+          }
+        },
+        {
+          "client_id": "758706504145-nkhll8oojoan9ncgcgi0enssjflh3i83.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZpkOb6GEIe2tCELihGHvVOvlK84VFjQM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758706504145-nkhll8oojoan9ncgcgi0enssjflh3i83.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
