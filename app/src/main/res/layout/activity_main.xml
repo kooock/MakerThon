@@ -1,61 +1,443 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Views.MainActivity">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/titleBar"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:background="@color/colorPrimaryDark"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/viewPager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-    </LinearLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/tabBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleBar" />
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabBar"
+        android:id="@+id/main_list"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/titleBar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewPager"
-        app:layout_constraintVertical_bias="1.0">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Left" />
+        <ImageView
+            android:id="@+id/adv_image"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:src="@drawable/title"
+            android:scaleType="fitXY"/>
 
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Center" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Right" />
-    </android.support.design.widget.TabLayout>
-</android.support.constraint.ConstraintLayout>
+        <RelativeLayout
+            android:id="@+id/map_search_button"
+            android:layout_width="match_parent"
+            android:layout_height="81dp">
+
+            <TextView
+                android:id="@+id/map_search_button_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="1sp"
+                android:padding="0dp"
+                android:text="주변 하위 식당을 모두 찾아보세요"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/map_search_button_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/map_search_button_subtitle"
+                android:layout_below="@id/map_search_button_subtitle"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="3sp"
+                android:padding="0dp"
+                android:text="내 주변 검색"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/map_search_button_marker"
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_alignTop="@id/map_search_button_subtitle"
+                android:layout_marginLeft="111dp"
+                android:layout_toRightOf="@id/map_search_button_subtitle"
+                android:src="@drawable/ic_gps"/>
+
+            <ImageView
+                android:id="@+id/map_search_button_arrow"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignTop="@id/map_search_button_subtitle"
+                android:layout_marginLeft="111dp"
+                android:layout_toRightOf="@id/map_search_button_subtitle"
+                android:src="@drawable/ic_arrow_drop_down"/>
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="239dp">
+
+            <ImageView
+                android:id="@+id/skyrocket"
+                android:layout_width="48dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/last_restaurant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/skyrocket"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@id/skyrocket"
+                android:lineSpacingExtra="3sp"
+                android:text="최근 하위 식당"
+                android:textColor="#31312f"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/last_restaurant_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/last_restaurant"
+                android:layout_marginRight="20dp"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="2sp"
+                android:text="더보기"
+                android:textColor="#31312f"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/last_restaurant_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/skyrocket"
+                android:layout_below="@id/skyrocket"
+                android:layout_marginTop="6dp"
+                android:lineSpacingExtra="1sp"
+                android:text="최근에 급상승한 하위 식당을 살펴보세요"
+                android:textColor="#31312f"
+                android:textSize="12sp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="144dp"
+                android:layout_below="@id/last_restaurant_subtitle"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:id="@+id/skyrocket_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"></LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="239dp">
+
+            <ImageView
+                android:id="@+id/most_acc"
+                android:layout_width="48dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/most_acc_restaurants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/most_acc"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@id/most_acc"
+                android:lineSpacingExtra="3sp"
+                android:text="최다 누적 하위 식당"
+                android:textColor="#31312f"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/most_acc_restaurant_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/most_acc_restaurants"
+                android:layout_marginRight="20dp"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="2sp"
+                android:text="더보기"
+                android:textColor="#31312f"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/most_acc_restaurants_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/most_acc"
+                android:layout_below="@id/most_acc"
+                android:layout_marginTop="6dp"
+                android:lineSpacingExtra="1sp"
+                android:text="최다 누적된 하위 식당을 살펴보세요"
+                android:textColor="#31312f"
+                android:textSize="12sp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="144dp"
+                android:layout_below="@id/most_acc_restaurants_subtitle"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:id="@+id/most_acc_restaurants_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"></LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/live"
+                android:layout_width="48dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/live"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@id/live"
+                android:lineSpacingExtra="3sp"
+                android:text="식당 평가"
+                android:textColor="#31312f"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/review_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/review"
+                android:layout_marginRight="20dp"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="2sp"
+                android:text="더보기"
+                android:textColor="#31312f"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/review_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/review"
+                android:layout_below="@id/review"
+                android:layout_marginTop="6dp"
+                android:lineSpacingExtra="1sp"
+                android:text="최근 식당별 리뷰를 살펴보세요"
+                android:textColor="#31312f"
+                android:textSize="12sp" />
+
+            <RelativeLayout
+                android:id="@+id/review_container1"
+                android:layout_width="match_parent"
+                android:layout_height="146dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_below="@id/review_subtitle">
+
+                <ImageView
+                    android:id="@+id/review_img1"
+                    android:layout_width="146dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/bg1"
+                    android:scaleType="fitXY"/>
+                <TextView
+                    android:id="@+id/review_title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#31312f"
+                    android:lineSpacingExtra="2sp"
+                    android:layout_alignTop="@id/review_img1"
+                    android:layout_toRightOf="@id/review_img1"
+                    android:layout_marginLeft="12dp"
+                    android:text="피탕김탕 경대북문점"/>
+                <TextView
+                    android:id="@+id/review_keyword1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#31312f"
+                    android:lineSpacingExtra="2sp"
+                    android:layout_alignLeft="@id/review_title1"
+                    android:layout_below="@id/review_title1"
+                    android:layout_marginTop="4dp"
+                    android:text="탕수육,김치,치즈"/>
+                
+                <ImageView
+                    android:id="@+id/down_img1"
+                    android:layout_width="11dp"
+                    android:layout_height="10dp"
+                    android:layout_alignLeft="@id/review_keyword1"
+                    android:layout_below="@id/review_keyword1"
+                    android:layout_marginTop="5.5dp"/>
+                <TextView
+                    android:id="@+id/down_count1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#31312f"
+                    android:lineSpacingExtra="2sp"
+                    android:layout_alignTop="@id/down_img1"
+                    android:layout_toRightOf="@id/down_img1"
+                    android:layout_marginLeft="4.5dp"
+                    android:text="12"/>
+                <TextView
+                    android:id="@+id/review_text1"
+                    android:layout_width="144dp"
+                    android:layout_height="40dp"
+                    android:textSize="10sp"
+                    android:textColor="#31312f"
+                    android:lineSpacingExtra="4sp"
+                    android:text="김치가 너무 덜억어서 당장이라도 무도사하고 맞짱뜨러 가겠다."
+                    android:layout_alignLeft="@id/down_img1"
+                    android:layout_below="@id/down_img1"
+                    android:layout_marginTop="12dp"/>
+                <TextView
+                    android:id="@+id/review_voting1"
+                    android:layout_width="94dp"
+                    android:layout_height="30dp"
+                    android:layout_alignLeft="@id/review_text1"
+                    android:layout_below="@id/review_text1"
+                    android:layout_marginTop="16dp"
+                    android:text="공감 (3)"
+                    android:background="@drawable/roundedbutton"/>
+
+                <TextView
+                    android:id="@+id/declaration1"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_alignTop="@id/review_voting1"
+                    android:layout_toRightOf="@id/review_voting1"
+                    android:background="@drawable/roundedbutton"
+                    android:text="신고"
+                    android:layout_marginLeft="6dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/review_container2"
+                android:layout_width="match_parent"
+                android:layout_height="146dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@id/review_container1">
+
+                <ImageView
+                    android:id="@+id/review_img2"
+                    android:layout_width="146dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/bg2"
+                    android:scaleType="fitXY"/>
+                <TextView
+                    android:id="@+id/review_title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#31312f"
+                    android:lineSpacingExtra="2sp"
+                    android:layout_alignTop="@id/review_img2"
+                    android:layout_toRightOf="@id/review_img2"
+                    android:layout_marginLeft="12dp"
+                    android:text="피탕김탕 경대북문점"/>
+                <TextView
+                    android:id="@+id/review_keyword2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#31312f"
+                    android:lineSpacingExtra="2sp"
+                    android:layout_alignLeft="@id/review_title2"
+                    android:layout_below="@id/review_title2"
+                    android:layout_marginTop="4dp"
+                    android:text="탕수육,김치,치즈"/>
+
+                <ImageView
+                    android:id="@+id/down_img2"
+                    android:layout_width="11dp"
+                    android:layout_height="10dp"
+                    android:layout_alignLeft="@id/review_keyword2"
+                    android:layout_below="@id/review_keyword2"
+                    android:layout_marginTop="5.5dp"/>
+                <TextView
+                    android:id="@+id/down_count2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#31312f"
+                    android:lineSpacingExtra="2sp"
+                    android:layout_alignTop="@id/down_img2"
+                    android:layout_toRightOf="@id/down_img2"
+                    android:layout_marginLeft="4.5dp"
+                    android:text="12"/>
+                <TextView
+                    android:id="@+id/review_text2"
+                    android:layout_width="144dp"
+                    android:layout_height="40dp"
+                    android:textSize="10sp"
+                    android:textColor="#31312f"
+                    android:lineSpacingExtra="4sp"
+                    android:text="김치가 너무 덜억어서 당장이라도 무도사하고 맞짱뜨러 가겠다."
+                    android:layout_alignLeft="@id/down_img2"
+                    android:layout_below="@id/down_img2"
+                    android:layout_marginTop="12dp"/>
+                <TextView
+                    android:id="@+id/review_voting2"
+                    android:layout_width="94dp"
+                    android:layout_height="30dp"
+                    android:layout_alignLeft="@id/review_text2"
+                    android:layout_below="@id/review_text2"
+                    android:layout_marginTop="16dp"
+                    android:text="공감 (6)"
+                    android:background="@drawable/roundedbutton"/>
+
+                <TextView
+                    android:id="@+id/declaration2"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_alignTop="@id/review_voting2"
+                    android:layout_toRightOf="@id/review_voting2"
+                    android:background="@drawable/roundedbutton"
+                    android:text="신고"
+                    android:layout_marginLeft="6dp"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

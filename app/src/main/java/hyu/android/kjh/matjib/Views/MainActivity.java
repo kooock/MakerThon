@@ -21,6 +21,8 @@ import hyu.android.kjh.matjib.Views.Fragments.HomeFragment;
 import hyu.android.kjh.matjib.Views.Fragments.MyFragment;
 import hyu.android.kjh.matjib.Views.Fragments.UserFragment;
 
+import
+
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tabBar)
     TabLayout mTabLayout;
