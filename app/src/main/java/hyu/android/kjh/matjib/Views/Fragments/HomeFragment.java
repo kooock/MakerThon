@@ -4,34 +4,26 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.BindView;
+import hyu.android.kjh.matjib.Adapters.HomeAdapter;
+import hyu.android.kjh.matjib.Presenters.HomePresenter;
 import hyu.android.kjh.matjib.R;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements HomePresenter.View {
+    @BindView(R.id.HomeRecyclerview)
+    RecyclerView recyclerView;
 
-    public HomeFragment() {
-        // Required empty public constructor
-    }
-
-
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
 
-        }
+
     }
 
     @Override
@@ -41,4 +33,8 @@ public class HomeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
+    @Override
+    public void showAdapter(HomeAdapter adapter) {
+
+    }
 }
