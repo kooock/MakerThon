@@ -8,4 +8,8 @@
     <color name="titleBar">#303F9F</color>
     <color name="tabBar">#303F9F</color>
 
+    <!--Font-->
+    <color name="tabFont">#fff</color>
+    <color name="titleFont">#fff</color>
+
 </resources>

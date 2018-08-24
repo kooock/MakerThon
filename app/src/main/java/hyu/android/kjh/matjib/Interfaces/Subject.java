@@ -1,4 +1,4 @@
-package hyu.android.kjh.matjib;
+package hyu.android.kjh.matjib.Interfaces;
 
 import android.support.v7.widget.RecyclerView;
 
